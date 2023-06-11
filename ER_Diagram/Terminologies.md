@@ -1,0 +1,12 @@
+### Terminologies
+- Term                        ->   Shape
+- Entity                      ->   Rectangle 
+- Weak Entity                 ->   Double rectangle
+- Attribute                   ->   Oval
+- Key Attribute               ->   Oval with an underline on said name
+- Multivalued Attribute       ->   Double oval
+- Composite Attribute         ->   An attrubte that can be divided into further attributes
+- Derived Attribute           ->   Dashed oval
+- Identifying Relationship    ->   Double diamond
+- Single line                 ->   Partial participation
+- Double line                 ->   Total participation

@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically in the center */
+}
+.the_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+}
+.container_avg {
+    margin-top: 18px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.container_avg > h4 {
+    margin: .1%;
+}
+
+.dropdown {
+    margin-right: 10px;
+}
+
+.graph {
+    margin-left: 20px;
+    flex-grow: 1; /* Fill remaining space */
+}
+
+.button {
+    align-items: center; /* Align button vertically in the center */
+}
+
+body {
+    margin: 0; /* Remove default body margin */
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hus marked vs indkomst</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+  <div class="outer-container">
+    <form action="{{ url_for("main")}}" method="POST" class = "the_form">
+      <div class="dropdown ejendom">
+        <h3>Ejendomme</h3>
+        <select name = "ejendom">
+          <option value = "famhus">En famillie hus</option>
+          <option value = "ejerlejl">Ejerlejlighed</option>
+          <option value = "somhus">Sommer hus</option>
+        </select>
+      </div>
+      <div class="dropdown loc">
+        <h3>Lokation</h3>
+        <select name = "region">
+          {% for val in data.region %}
+            <option value ="{{val}}">
+              {% if val == "hoved_staden"%}
+                Hovedstaden
+              {% else %}
+                Hele Danmark
+              {% endif %}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="container Indkomst" name="indkomst">
+        <div class="dropdown">
+          <h3>Indkomst</h3>
+          <select name = "indkomst" multiple>
+            {% for val in data.groups %}
+              <option>{{val}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="button">
+          <input type="checkbox" name="indkomst_aggregate">Aggregate groups</input>
+        </div>
+      </div>
+
+      <div class="container loen">
+        <div class="dropdown">
+          <h3>Løn</h3>
+          <select multiple name="loen">
+            {% for val in data.groups %}
+              <option>{{val}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="button">
+          <input type="checkbox" name="loen_aggregate" >Aggregate groups</input>
+        </div>
+      </div>
+      <div class="container_avg">
+        <h4>Avg years of Indkomst for Avg house?(Indkomst groups)<h4>
+        <div class="button">
+          <input type="checkbox" name="avg" >Yes please!</input>
+        </div>
+        </select>
+      </div>
+      <div class="button">
+        <button name = "create_graph" onclick="getData()">Generate graph</button>
+      </div>
+    </form>
+    <div class="graph">
+      {% if data.image %}
+        <img src="data:image/png;base64,{{data.image}}"/>
+      {% endif %}
+    </div>
+  <div class="outer-container">
+</body>
+</html>
